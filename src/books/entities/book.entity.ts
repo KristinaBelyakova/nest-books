@@ -5,8 +5,8 @@ export class Book {
   @PrimaryGeneratedColumn()
   id: number
 
-  @Column({default: 0})
-  offset: number
+  // @Column({ default: 0 })
+  // offset: number
 
   @Column()
   title: string
