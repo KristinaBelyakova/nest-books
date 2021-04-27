@@ -12,8 +12,8 @@ import { Book } from 'src/books/entities/book.entity';
       password: '',
       database: 'books',
       entities: [Book],
-      synchronize: true,
+      synchronize: false
     }),
   ]
 })
-export class DatabaseModule {}
+export class DatabaseModule { }

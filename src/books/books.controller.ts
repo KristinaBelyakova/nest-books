@@ -12,18 +12,17 @@ export class BooksController {
 
   @Get()
   async getAll(
-    @Query('orderBy') search: string,
-    @Query() { offset, limit }: PaginationParams
+    @Query('orderBy') sort: string,
+    @Query() { offset, limit, startId }: PaginationParams
   ) {
-    if (search) {
-      return 'ok'
-      // return this.booksService.searchForBooks(search, offset, limit);
+    if (sort) {
+      return this.booksService.getAll()
     }
-    return this.booksService.getAll(offset, limit)
+    return this.booksService.getAll(offset, limit, startId)
   }
 
   @Get(':id')
-  getOne(@Param('id') id: string) {
+  getOne(@Param('id') id: number) {
     return this.booksService.getById(id)
   }
 
@@ -38,7 +37,7 @@ export class BooksController {
   }
 
   @Delete(':id')
-  deleteOne(@Param('id') id: string) {
+  deleteOne(@Param('id') id: number) {
     return this.booksService.delete(id)
   }
 }

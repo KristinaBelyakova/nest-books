@@ -5,14 +5,11 @@ export class Book {
   @PrimaryGeneratedColumn()
   id: number
 
-  // @Column({ default: 0 })
-  // offset: number
-
   @Column()
   title: string
 
   @Column()
-  date: string
+  startDate: string
 
   @Column()
   author: string
