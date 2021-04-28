@@ -1,8 +1,26 @@
+import {
+  IsNotEmpty,
+  IsString,
+} from 'class-validator';
 
 export class UpdateBookDto {
-  readonly title: string
-  readonly date: string
-  readonly author: string
-  readonly description: string
-  readonly image: string
+  @IsString()
+  @IsNotEmpty()
+  title: string
+
+  @IsString()
+  @IsNotEmpty()
+  date: string
+
+  @IsString()
+  @IsNotEmpty()
+  author: string
+
+  @IsString()
+  @IsNotEmpty()
+  description: string
+
+  @IsString()
+  @IsNotEmpty()
+  image: string
 }

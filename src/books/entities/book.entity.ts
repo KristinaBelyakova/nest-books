@@ -9,7 +9,7 @@ export class Book {
   title: string
 
   @Column()
-  startDate: string
+  date: string
 
   @Column()
   author: string

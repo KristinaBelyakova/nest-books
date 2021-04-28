@@ -1,5 +1,5 @@
-import { Body, ClassSerializerInterceptor, Controller, Delete, Get, Param, Post, Put, Query, UseInterceptors } from '@nestjs/common';
-import { PaginationParams } from 'src/utils/paginationParams';
+import { Body, ClassSerializerInterceptor, Controller, Delete, Get, Param, Post, Put, Query, Req, UseInterceptors, UsePipes, ValidationPipe } from '@nestjs/common';
+import { PaginationParams } from './../utils/paginationParams';
 import { BooksService } from './books.service';
 import { CreateBookDto } from './dto/create-book.dto'
 import { UpdateBookDto } from './dto/update-book.dto'
@@ -12,12 +12,12 @@ export class BooksController {
 
   @Get()
   async getAll(
-    @Query('orderBy') sort: string,
+    // @Query('orderBy') sort: boolean,
     @Query() { offset, limit, startId }: PaginationParams
   ) {
-    if (sort) {
-      return this.booksService.getAll()
-    }
+    // if (sort) {
+    //   return this.booksService.getAll()
+    // }
     return this.booksService.getAll(offset, limit, startId)
   }
 
@@ -27,11 +27,13 @@ export class BooksController {
   }
 
   @Post()
+  @UsePipes(new ValidationPipe({ transform: true }))
   createOne(@Body() createBookDto: CreateBookDto) {
     return this.booksService.create(createBookDto)
   }
 
   @Put(':id')
+  @UsePipes(new ValidationPipe({ transform: true }))
   updateOne(@Body() updateBookDto: UpdateBookDto, @Param('id') id) {
     return this.booksService.update(id, updateBookDto)
   }

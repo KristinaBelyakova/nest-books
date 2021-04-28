@@ -1,5 +1,5 @@
 
-import { HttpException, HttpStatus, Injectable, Query } from '@nestjs/common'
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { FindManyOptions, MoreThan, Repository } from 'typeorm'
 import { CreateBookDto } from './dto/create-book.dto'

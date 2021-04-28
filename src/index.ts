@@ -7,7 +7,7 @@ createConnection().then(async connection => {
     console.log("Inserting a new book into the database...");
     const book = new Book();
     book.title = "Timber";
-    book.date = "Saw";
+    // book.date = "Saw";
     book.author = "some";
     book.description = "some";
     book.image = "some";
