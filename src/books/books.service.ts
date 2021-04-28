@@ -1,4 +1,3 @@
-
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { FindManyOptions, MoreThan, Repository } from 'typeorm'
@@ -28,7 +27,7 @@ export class BooksService {
         date: 'DESC',
         author: 'DESC',
         description: 'DESC',
-        image: 'DESC'
+        image: 'DESC',
       },
       skip: offset,
       take: limit,
